@@ -1,0 +1,115 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools">
+    <androidx.coordinatorlayout.widget.CoordinatorLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:fitsSystemWindows="true">
+
+        <com.google.android.material.appbar.AppBarLayout
+                android:id="@+id/app_bar"
+                android:fitsSystemWindows="true"
+                android:layout_height="300dp"
+                android:layout_width="match_parent"
+                android:theme="@style/AppTheme.AppBarOverlay">
+
+            <com.google.android.material.appbar.CollapsingToolbarLayout
+                    android:id="@+id/toolbar_layout"
+                    android:fitsSystemWindows="true"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    app:toolbarId="@+id/toolbar"
+                    app:layout_scrollFlags="scroll|exitUntilCollapsed"
+                    app:contentScrim="?attr/colorPrimary">
+                <ImageView
+                        android:id="@+id/thumbnail"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:adjustViewBounds="true"
+                        android:scaleType="centerCrop"/>
+
+                <androidx.appcompat.widget.Toolbar
+                        android:id="@+id/toolbar"
+                        android:layout_height="?attr/actionBarSize"
+                        android:layout_width="match_parent"
+                        app:layout_collapseMode="pin"
+                        app:popupTheme="@style/AppTheme.PopupOverlay"/>
+
+            </com.google.android.material.appbar.CollapsingToolbarLayout>
+        </com.google.android.material.appbar.AppBarLayout>
+
+        <androidx.core.widget.NestedScrollView
+                app:layout_behavior="@string/appbar_scrolling_view_behavior"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+                <TextView
+                        android:text="@string/weight_label"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content" android:id="@+id/weight_label"
+                        app:layout_constraintStart_toStartOf="parent" app:layout_constraintHorizontal_bias="0.5"
+                        app:layout_constraintEnd_toStartOf="@+id/height_label" android:layout_marginTop="16dp"
+                        app:layout_constraintTop_toTopOf="parent" android:textColor="@android:color/darker_gray"
+                        android:textSize="14sp" app:fontFamily="monospace"/>
+                <TextView
+                        android:text="@string/height_label"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:id="@+id/height_label" app:layout_constraintStart_toEndOf="@+id/weight_label"
+                        app:layout_constraintHorizontal_bias="0.5" app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintTop_toTopOf="@+id/weight_label"
+                        app:layout_constraintBottom_toBottomOf="@+id/weight_label"
+                        android:textColor="@android:color/darker_gray" android:textSize="14sp"
+                        app:fontFamily="monospace"/>
+                <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:id="@+id/weight" tools:text="100"
+                        android:textSize="18sp" app:fontFamily="monospace" android:textStyle="bold"
+                        android:layout_marginTop="24dp" app:layout_constraintTop_toBottomOf="@+id/weight_label"
+                        app:layout_constraintEnd_toEndOf="@+id/weight_label"
+                        app:layout_constraintStart_toStartOf="@+id/weight_label"/>
+                <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:id="@+id/height" tools:text="1.5"
+                        android:textSize="18sp" app:fontFamily="monospace" android:textStyle="bold"
+                        android:layout_marginTop="24dp" app:layout_constraintTop_toBottomOf="@+id/height_label"
+                        app:layout_constraintStart_toStartOf="@+id/height_label"
+                        app:layout_constraintEnd_toEndOf="@+id/height_label"/>
+                <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:id="@+id/position" android:layout_marginTop="24dp"
+                        app:layout_constraintTop_toBottomOf="@+id/weight" app:layout_constraintStart_toStartOf="parent"
+                        android:layout_marginLeft="8dp" android:layout_marginStart="8dp"
+                        app:layout_constraintEnd_toEndOf="parent" android:layout_marginEnd="8dp"
+                        android:layout_marginRight="8dp" tools:text="MidFielder" android:textSize="18sp"
+                        app:fontFamily="monospace" android:textStyle="bold"/>
+                <View
+                        android:background="@color/colorPrimaryDark"
+                        android:layout_width="0dp"
+                        android:layout_height="1dp"
+                        android:id="@+id/separator" app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/position" android:layout_marginTop="8dp"
+                        android:layout_marginLeft="16dp" android:layout_marginStart="16dp" android:layout_marginEnd="16dp"
+                        android:layout_marginRight="16dp"/>
+                <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:id="@+id/description" app:layout_constraintStart_toStartOf="parent"
+                        android:layout_marginLeft="16dp" android:layout_marginStart="16dp"
+                        app:layout_constraintEnd_toEndOf="parent" android:layout_marginEnd="16dp"
+                        android:layout_marginRight="16dp" android:layout_marginTop="8dp"
+                        app:layout_constraintTop_toBottomOf="@+id/separator" tools:text="-"/>
+            </androidx.constraintlayout.widget.ConstraintLayout>
+        </androidx.core.widget.NestedScrollView>
+
+    </androidx.coordinatorlayout.widget.CoordinatorLayout>
+</layout>
